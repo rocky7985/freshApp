@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>updateTask</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="updateTaskform" (ngSubmit)="updateTask()">
+  <ion-item>
+    <ion-label position="floating">Title</ion-label>
+    <ion-input formControlName="title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea formControlName="description"></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="full" type="submit">Update Task</ion-button>
+  </form>
+</ion-content>

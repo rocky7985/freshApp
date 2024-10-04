@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon name="arrow-back-outline" routerLink="/profile" routerDirection="back"></ion-icon>
+    <ion-title>UpdateProfile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-spinner color="primary" *ngIf="isSubmit"></ion-spinner>
+
+  <form [formGroup]="updateForm" (ngSubmit)="updateData()">
+
+    <ion-item>
+      <ion-label>Select Role</ion-label>
+      <ion-select placeholder="Select Role" formControlName="role">
+        <ion-select-option value="seller">Seller</ion-select-option>
+        <ion-select-option value="customer">Customer</ion-select-option>
+      </ion-select>
+      <ion-note slot="error" *ngIf="updateForm.get('role')?.hasError('required') && updateForm.get('role')?.touched">
+        Role is required.
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" formControlName="name" placeholder="Enter your Name"></ion-input>
+      <ion-note slot="error"
+        *ngIf="updateForm.get('name')?.hasError('required') && (updateForm.get('name')?.dirty || updateForm.get('name')?.touched)">
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" formControlName="email" placeholder="Enter Email"></ion-input>
+      <ion-note slot="error"
+        *ngIf="updateForm.get('email')?.hasError('required') && (updateForm.get('email')?.dirty || updateForm.get('email')?.touched)">
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Phone</ion-label>
+      <ion-input type="tel" formControlName="phone" placeholder="Enter PhoneNo." maxLength="10"></ion-input>
+      <ion-note slot="error"
+        *ngIf="updateForm.get('phone')?.hasError('required') && (updateForm.get('phone')?.dirty || updateForm.get('phone')?.touched)">
+        Phone No. must be 10 numbers long.
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Address</ion-label>
+      <ion-input type="text" formControlName="address" placeholder="Enter Address"></ion-input>
+      <ion-note slot="error"
+        *ngIf="updateForm.get('address')?.hasError('required') && (updateForm.get('address')?.dirty || updateForm.get('address')?.touched)">
+        The field is required.</ion-note>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" [disabled]="updateForm.invalid">Update Profile</ion-button>
+  </form>
+
+</ion-content>

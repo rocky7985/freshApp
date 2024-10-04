@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon name="arrow-back-outline" routerLink="/home" routerDirection="back"></ion-icon>
+    <ion-title>todo-task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>Select Customer</ion-label>
+    <ion-select [(ngModel)]="selectedStudent" placeholder="Choose the Customer to assign task" [multiple]="true">
+      <ion-select-option *ngFor="let list of customers" [value]="list.customerId">{{list.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Title</ion-label>
+    <ion-input type="text" [(ngModel)]="title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea [(ngModel)]="description"></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="block" (click)="addtask()">Assign Task</ion-button>
+
+</ion-content>

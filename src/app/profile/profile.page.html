@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon name="arrow-back-outline" routerLink="/home" routerDirection="back"></ion-icon>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="isSubmit">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+
+  <div *ngIf="details">
+    <ion-item>
+      <ion-label>Role</ion-label>
+      <ion-input [value]="details.role" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input [value]="details.name" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-input [value]="details.phone" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input [value]="details.email" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Address Lane</ion-label>
+      <ion-input [value]="details.address" readonly></ion-input>
+    </ion-item>
+  </div>
+  <ion-button (click)="navigateToupdate()">Update Profile</ion-button>
+</ion-content>
